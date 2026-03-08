@@ -5,6 +5,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler,OneHotEncoder
+from imblearn.over_sampling import SMOTE
 
 class DataPreprocessing:
     def PreProcessData(self,data):
@@ -16,7 +17,7 @@ class DataPreprocessing:
         num_col=x.select_dtypes(exclude='object').columns
 
         num_pipeline=Pipeline([('Imputer',SimpleImputer(strategy='median')),
-                               ('Scaler',StandardScaler())])
+                               ('smote',SMOTE(random_state=42))])
         cat_pipeline=Pipeline([('Imputer',SimpleImputer(strategy='most_frequent')),
                                ('Encoder',OneHotEncoder(handle_unknown='ignore'))])
         preprocessor=ColumnTransformer([('num',num_pipeline,num_col),

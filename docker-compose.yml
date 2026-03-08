@@ -1,0 +1,17 @@
+# to run multiple services as FastAPI and Streamlit together
+
+services:
+
+  fastapi:
+    build: .
+    container_name: loan_api
+    ports:
+      - "8000:8000"
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+  streamlit:
+    build: .
+    container_name: loan_ui
+    ports:
+      - "8501:8501"
+    command: streamlit run frontend/app.py --server.port 8501 --server.address 0.0.0.0
