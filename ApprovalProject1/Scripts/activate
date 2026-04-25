@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\DELL\OneDrive\Desktop\Loan_prediction\ApprovalProject1"
+VIRTUAL_ENV="D:\Loan_prediction\ApprovalProject1"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

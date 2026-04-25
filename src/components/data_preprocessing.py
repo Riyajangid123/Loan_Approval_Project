@@ -5,19 +5,18 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler,OneHotEncoder
-from imblearn.over_sampling import SMOTE
 
 class DataPreprocessing:
     def PreProcessData(self,data):
     
         x=data.drop(['Loan_ID','Loan_Status'],axis=1)
-        y=data['Loan_Status']
+        y = data['Loan_Status'].map({'Y':1,'N':0})
 
         cat_col=x.select_dtypes(include='object').columns
         num_col=x.select_dtypes(exclude='object').columns
 
         num_pipeline=Pipeline([('Imputer',SimpleImputer(strategy='median')),
-                               ('smote',SMOTE(random_state=42))])
+                               ('scaler', StandardScaler())])
         cat_pipeline=Pipeline([('Imputer',SimpleImputer(strategy='most_frequent')),
                                ('Encoder',OneHotEncoder(handle_unknown='ignore'))])
         preprocessor=ColumnTransformer([('num',num_pipeline,num_col),

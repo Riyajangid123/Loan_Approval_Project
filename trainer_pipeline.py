@@ -8,7 +8,7 @@ class TrainPipeline:
 
         # Step 1 : Data Ingestion
         ingestion = DataIngestion()
-        data = ingestion.Ingest_data(r"C:\Users\DELL\OneDrive\Desktop\Loan_prediction\data\data.csv")
+        data = ingestion.Ingest_data(r"D:\Loan_prediction\data\data.csv")
 
         print("Data Ingestion Completed")
 
