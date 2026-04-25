@@ -26,6 +26,7 @@
 - Frontend: Streamlit interface for user input
 - Model Persistence: Saved using Joblib
 - Containerization: Dockerized for easy deployment on cloud platforms
+- Cloud Deployment: Successfully deployed on Amazon Web Services (EC2) with Docker containers, enabling scalable and accessible web-based predictions.
 
 # Technologies Used
 - Python 3.x
@@ -35,6 +36,7 @@
 - Streamlit (Web App Interface)
 - Joblib (Model Serialization)
 - Docker (Containerization & Deployment)
+- AWS EC2
 
 # Project Structure
 loan-approval-project/
